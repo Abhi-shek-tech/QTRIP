@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Practice Suite">
+    <!-- <groups>
+      <run>
+      <include name= 'sanityTest'</include>
+      <include name= 'regressionTest'</include>
+      </run>
+    </groups>    -->
+    <test name="Test Basics 1">
+        <classes>
+            <class name="recreateqripproject.qtriptest.tests.testCase_01"></class>
+            <class name="recreateqripproject.qtriptest.tests.testCase_02"></class>
+            <!-- <class name="qtriptest.tests.testCase_03"></class> -->
+            <!-- <class name="qtriptest.tests.testCase_04"></class> -->
+        </classes>
+    </test>
+</suite>

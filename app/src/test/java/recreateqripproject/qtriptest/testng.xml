@@ -1,0 +1,46 @@
+<!--!&#45;&#45; <?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">-->
+<!--<suite name="QTrip Test cases">-->
+<!--        <Parameters name= "emailID" ,  value= "testuser@gmail.com" />-->
+<!--        <Parameters name= "password" , value= "abc@123" />-->
+<!--        <test name="Demo testing", verbose ="2">-->
+<!--        -->
+<!--        &lt;!&ndash; <packages>-->
+<!--            <package name="qtriptest"></package>-->
+<!--        </packages> &ndash;&gt;-->
+<!--            <classes>-->
+<!--                    <class name="testCase_01"/>-->
+<!--                    <class name="testCase_02"/>-->
+<!--            </classes>     -->
+<!--        </test>-->
+<!--<suite> &ndash;&gt;-->
+
+
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">-->
+<!--<suite name="Tests for QTRIP Regression">-->
+<!--    -->
+<!--    <test name = "LoginFlow" verbose="2">-->
+<!--         <parameter name="TC1_Username" value="testUser1" />-->
+<!--         <parameter name="TC1_Password" value="abc@123" />-->
+
+<!--        <groups>-->
+<!--            <run>-->
+<!--              <include name = "Sanity_test"></include>-->
+<!--            </run>-->
+<!--        </groups>-->
+
+<!--        <packages>-->
+<!--            <package name="qtriptest"></package>-->
+<!--        </packages>-->
+<!--        <classes>-->
+<!--            &lt;!&ndash; <class name="qtriptest.DriverSingleton"></class> &ndash;&gt;-->
+<!--            <class name="qtriptest.tests.testCase_01"></class>-->
+<!--            <class name="qtriptest.tests.testCase_02"></class>-->
+<!--            &lt;!&ndash; <class name="qtriptest.tests.testCase_03"></class> &ndash;&gt;-->
+<!--            &lt;!&ndash; <class name="qtriptest.tests.testCase_04"></class> &ndash;&gt;-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--   -->
+<!--</suite>-->
