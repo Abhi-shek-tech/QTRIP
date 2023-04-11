@@ -1,5 +1,6 @@
 package recreateqripproject.qtriptest.tests;
 
+import org.openqa.selenium.WebDriver;
 import recreateqripproject.qtriptest.DP;
 import recreateqripproject.qtriptest.DriverSingleton;
 import recreateqripproject.qtriptest.ReportSingleton;
@@ -12,14 +13,12 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class testCase_04 {
-    static RemoteWebDriver driver;
+    static WebDriver driver;
     List<WebElement> reservationId;
     ExtentTest test;
     ExtentReports report;
@@ -79,7 +78,7 @@ public class testCase_04 {
           {
               report.endTest(test);
               report.flush();
-              driver.quit();
+              //driver.quit();
           }
       }
         

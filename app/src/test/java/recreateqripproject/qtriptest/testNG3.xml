@@ -10,6 +10,9 @@
     <test name="Test Basics 1">
         <classes>
             <class name="recreateqripproject.qtriptest.tests.testCase_01"/>
+            <class name="recreateqripproject.qtriptest.tests.testCase_02"/>
+            <class name="recreateqripproject.qtriptest.tests.testCase_03"/>
+            <class name="recreateqripproject.qtriptest.tests.testCase_04"/>
         </classes>
     </test>
 </suite>

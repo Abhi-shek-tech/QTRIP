@@ -6,20 +6,28 @@
  * User Manual available at https://docs.gradle.org/8.0.2/userguide/building_java_projects.html
  */
 
-plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
-    id 'application'
-}
+apply plugin: 'java'
+apply plugin: 'application'
+
+
+group 'org.example'
+version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+
+application {
+    // Define the main class for the application.
+    mainClass = 'qtriptest.App'
 }
 
 dependencies {
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.0.0-alpha-1'
     // https://mvnrepository.com/artifact/org.testng/testng
     testImplementation group: 'org.testng', name: 'testng', version: '7.7.1'
-
+    // https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.3.2'
 
     implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.2'
 
@@ -31,13 +39,18 @@ dependencies {
     
     implementation 'com.relevantcodes:extentreports:2.40.2'
 }
-
-application {
-    // Define the main class for the application.
-    mainClass = 'recreateqripproject.App'
-}
+test {
+    useTestNG() {
+        suites "src/test/java/recreateqripproject/qtriptest/testNG3.xml"
+        useDefaultListeners = true // generates the test report
+    }
+//application {
+//    // Define the main class for the application.
+//    mainClass = 'recreateqripproject.App'
+//}
 
 // tasks.named('test') {
 //     // Use JUnit Platform for unit tests.
 //     useJUnitPlatform()
 // }
+}

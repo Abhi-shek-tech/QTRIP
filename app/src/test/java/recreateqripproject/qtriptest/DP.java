@@ -20,7 +20,7 @@ public class DP {
     public XSSFRow row;
     public XSSFCell cell;
     
-    String path = System.getProperty("user.dir") + "/src/test/resources/DatasetsforQTrip.xlsx";
+    String path = System.getProperty("user.dir") + "src/test/resources/DatasetsforQTrip.xlsx";
     public int getRowCount(String sheetName) throws IOException
     {
         Input=new FileInputStream(path);
@@ -32,24 +32,24 @@ public class DP {
         return row;
     }
     
-    public int getColumnCount(String sheetName, int rownum) throws IOException
+    public int getColumnCount(String sheetName, int row_num) throws IOException
     {
         Input=new FileInputStream(path);
         workbook=new XSSFWorkbook(Input);
         sheet = workbook.getSheet(sheetName);
-        row=sheet.getRow(rownum);
-        int cellcount =row.getLastCellNum();
+        row=sheet.getRow(row_num);
+        int cell_count =row.getLastCellNum();
         workbook.close();
         Input.close();
-        return cellcount;
+        return cell_count;
     }
 
-    public String getCellData(String sheetName, int rownum, int column) throws IOException
+    public String getCellData(String sheetName, int row_num, int column) throws IOException
     {
         Input=new FileInputStream(path);
         workbook=new XSSFWorkbook(Input);
         sheet = workbook.getSheet(sheetName);
-        row=sheet.getRow(rownum);
+        row=sheet.getRow(row_num);
         cell=row.getCell(column);
         DataFormatter formatter = new DataFormatter();
         String data;
@@ -68,40 +68,41 @@ public class DP {
     //method. is from java.lang.reflect package to get the name of the sheet
     @DataProvider (name = "data-provider1")
     public Object[][] dpMethod (Method m) throws IOException{
-        System.out.println("DP excuted for test case 1");
-          int totalrows=getRowCount(m.getName());
-          int totalcolumuns=getColumnCount(m.getName(), 1);
+        System.out.println("DP executed for test case 1");
+          int total_rows=getRowCount(m.getName());
+          int total_columns=getColumnCount(m.getName(), 1);
 
-          String testcase1data [][]= new String[totalrows][totalcolumuns-1];
+          String testcase1data [][]= new String[total_rows][total_columns-1];
 
-        for(int i=1 ; i<=totalrows; i++){
-            for(int j=1; j<totalcolumuns; j++){
+        for(int i=1 ; i<=total_rows; i++){
+            for(int j=1; j<total_columns; j++){
                testcase1data[i-1][j-1]= getCellData(m.getName(), i, j);
             }
         }
         System.out.println(testcase1data);
         return testcase1data;
     }
-    // @DataProvider (name = "data-provider2")
-    // public Object[][] dpMethod1(Method m) throws IOException{
-    //     System.out.println("DP executed for test case 2");
-    //     int totalrows=getRowCount("TestCase02");
-    //     int totalcolumuns=getColumnCount("TestCase02", 1);
-    //     String testCaseData [][] =new String[totalrows][totalcolumuns-1];
-    //     for(int i=1;i<=totalrows;i++){
-    //         for(int j=1;j<totalcolumuns;j++){
-    //             testCaseData[i-1][j-1]= getCellData("TestCase02", i, j);
-    //         }
-    //     }
-    //     for(String[] a : testCaseData){
-    //         System.out.println("dataset 1\n");
-    //         for(String b : a){
-    //             System.out.println(b);
-    //         }
-    //     }
-    //     return testCaseData;
+//     @DataProvider (name = "data-provider1")
+//
+//     public Object[][] dpMethod1(Method m) throws IOException{
+//         System.out.println("DP executed for test case 2");
+//         int totalrows=getRowCount("TestCase01");
+//         int totalcolumuns=getColumnCount("TestCase01", 1);
+//         String testCaseData [][] =new String[totalrows][totalcolumuns-1];
+//         for(int i=1;i<=totalrows;i++){
+//             for(int j=1;j<totalcolumuns;j++){
+//                 testCaseData[i-1][j-1]= getCellData("TestCase01", i, j);
+//             }
+//         }
+//         for(String[] a : testCaseData){
+//             System.out.println("dataset 1\n");
+//             for(String b : a){
+//                 System.out.println(b);
+//             }
+//         }
+//         return testCaseData;
+//
+//     }
 
-    // }
-  
 }
 

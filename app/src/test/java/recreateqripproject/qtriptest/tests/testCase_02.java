@@ -1,25 +1,24 @@
 package recreateqripproject.qtriptest.tests;
 
+import org.openqa.selenium.WebDriver;
 import recreateqripproject.qtriptest.DP;
 import recreateqripproject.qtriptest.DriverSingleton;
 import recreateqripproject.qtriptest.ReportSingleton;
 import recreateqripproject.qtriptest.pages.AdventurePage;
 import recreateqripproject.qtriptest.pages.HomePage;
-import recreateqripproject.qtriptest.pages.LoginPage;
-import recreateqripproject.qtriptest.pages.RegisterPage;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
 
 public class testCase_02 {
-    RemoteWebDriver driver;
+    WebDriver driver;
     static ExtentTest test;
     static ExtentReports report;
     static Logger log = Logger.getLogger(testCase_02.class.getClass());

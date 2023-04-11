@@ -3,23 +3,30 @@ package recreateqripproject.qtriptest;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
-
 
 public class DriverSingleton {
      
     private RemoteWebDriver driver= null;
     private static DriverSingleton instanceOfSingletonBrowserClass = null;
     private DriverSingleton() throws MalformedURLException{
-       
-            // Launch Browser using Zalenium
-            final DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setBrowserName(BrowserType.CHROME);
-            driver = new RemoteWebDriver(new URL("http://localhost:8082/wd/hub"), capabilities);
+            WebDriverManager.firefoxdriver().setup();
+            FirefoxOptions option=new FirefoxOptions();
+            WebDriver driver=new FirefoxDriver(option);
+            //option.addArguments("--remote-allow-origins=*");
+            // Launch Browser using Zalenium need docker
+//            final DesiredCapabilities capabilities = new DesiredCapabilities();
+//            capabilities.setBrowserName(BrowserType.CHROME);
+//            driver = new RemoteWebDriver(new URL("http://localhost:8082/wd/hub"), capabilities);
             driver.manage().window().maximize();
+            //driver.get("https://www.google.com/");
             System.out.println("createDriver()"); 
     
     }
@@ -35,7 +42,7 @@ public class DriverSingleton {
     return instanceOfSingletonBrowserClass;
 
    }
-   public RemoteWebDriver getDriver(){
+   public WebDriver getDriver(){
 
     return driver;
    }

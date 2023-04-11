@@ -6,7 +6,6 @@ import java.net.MalformedURLException;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -24,21 +23,20 @@ public class testCase_01 {
     ExtentReports report;
  
     @BeforeTest(alwaysRun=true)
-    public void setUp() throws MalformedURLException{
-        DriverSingleton driverSingleton= DriverSingleton.getinstanceOfDriverSingletonClass();
-        driver=driverSingleton.getDriver();
+    public void setUp() throws MalformedURLException
+    {
+       DriverSingleton driverSingleton= DriverSingleton.getinstanceOfDriverSingletonClass();
+       driver=driverSingleton.getDriver();
 
-        ReportSingleton reportSingleton = ReportSingleton.instanciateReportSingletonObject();
-        report = reportSingleton.getExtendReport();
-        test = report.startTest("TestCase01");
+       ReportSingleton reportSingleton = ReportSingleton.instanciateReportSingletonObject();
+       report = reportSingleton.getExtendReport();
+       test = report.startTest("TestCase01");
     }
 
-    @Test(description ="verify user logged in to QTrip",priority = 1,groups="Login Flow",dataProvider = "data-provider1",dataProviderClass = DP.class)
+    @Test(description ="verify user logged in to QTrip",priority = 1,groups="Login Flow",dataProviderClass = DP.class,dataProvider = "data-provider1")
     //@Parameters({"emailID","password"}) 
     public void TestCase01(String emailID,String password) throws InterruptedException, IOException 
     {
-       
-        
         HomePage home=new HomePage(driver);
         RegisterPage registerPage=new RegisterPage(driver);
         LoginPage login=new LoginPage(driver);
@@ -69,6 +67,6 @@ public class testCase_01 {
     {
         report.endTest(test);
         report.flush();
-        driver.quit();
+        //driver.close();
     }
 }
