@@ -44,13 +44,25 @@ test {
         suites "src/test/java/recreateqripproject/qtriptest/testNG3.xml"
         useDefaultListeners = true // generates the test report
     }
-//application {
-//    // Define the main class for the application.
-//    mainClass = 'recreateqripproject.App'
-//}
 
-// tasks.named('test') {
-//     // Use JUnit Platform for unit tests.
-//     useJUnitPlatform()
-// }
+    afterSuite { desc, result ->
+        if (!desc.parent) {
+            println "\nTEST RESULT: ${result.resultType}"
+            println "TEST SUMMARY: RAN ${result.testCount} TESTS, " +
+                    "${result.successfulTestCount} SUCCEEDED, " +
+                    "${result.failedTestCount} FAILED, " +
+                    "${result.skippedTestCount} SKIPPED"
+        }
+    }
+
+    testLogging {
+        events "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
+        exceptionFormat = 'full'
+
+        // Optionally do:
+        showStackTraces = true
+    }
+
+    testLogging.showStandardStreams = true
+    test.outputs.upToDateWhen {false}
 }
