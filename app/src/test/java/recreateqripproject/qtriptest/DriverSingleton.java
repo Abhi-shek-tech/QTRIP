@@ -26,7 +26,7 @@ public class DriverSingleton {
 //            capabilities.setBrowserName(BrowserType.CHROME);
 //            driver = new RemoteWebDriver(new URL("http://localhost:8082/wd/hub"), capabilities);
             driver.manage().window().maximize();
-            driver.get("https://www.google.com/");
+//            driver.get("https://www.google.com/");
             System.out.println("createDriver()"); 
     
     }
