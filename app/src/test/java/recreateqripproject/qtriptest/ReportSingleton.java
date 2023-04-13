@@ -29,7 +29,7 @@ public class ReportSingleton {
         
         System.out.println("Report singleton");
         System.out.println(System.getProperty("user.dir"));
-        report = new ExtentReports("/home/crio-user/workspace/abhishekbindhani333-ME_QTRIP_QA/app/extent_customization_configs.xml"+ "ExtentReportResults_" + getTimeStamp() + ".html"); 
+        report = new ExtentReports("extent_customization_configs_"+ "ExtentReportResults_" + getTimeStamp() + ".html");
         report.loadConfig(new File("extent_customization_configs.xml"));
     } 
 
